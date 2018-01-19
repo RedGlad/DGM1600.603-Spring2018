@@ -282,10 +282,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   transX: 0
-  transY: 0
+  transY: 0.1
   transZ: 0
   rotX: 0
-  rotY: 0
+  rotY: 0.5
   rotZ: 0
 --- !u!1 &585454511
 GameObject:
