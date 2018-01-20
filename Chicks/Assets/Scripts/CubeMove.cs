@@ -14,12 +14,12 @@ public class CubeMove : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		transform.Translate (transX, transY, transZ);
 		transform.Rotate (rotX,rotY,rotZ);
-	}
+    }
 }
