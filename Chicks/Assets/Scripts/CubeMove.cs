@@ -8,17 +8,17 @@ public class CubeMove : MonoBehaviour {
 	public float turnSpeed;
 	public float jumpHeight;
 	public Rigidbody rigid;
+	public Transform rotator;
 
-	// Use this for initialization
 	void Start () {
 		rigid = GetComponent<Rigidbody>();
 	}
 	
-	// Update is called once per frame
 	 void FixedUpdate () {
 		var j = Input.GetAxis("Jump")* Time.deltaTime * jumpHeight;
 		var h = Input.GetAxis("Horizontal")* Time.deltaTime * turnSpeed;
 		var v = Input.GetAxis("Vertical")* Time.deltaTime * moveSpeed;
+		//var j2 = rotator.TransformDirection(Vector3.up*jumpHeight);
 		
 		rigid.AddForce(0,j,0);
 		// transform.Translate(0,j,0);
