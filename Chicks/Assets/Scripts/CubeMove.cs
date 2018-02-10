@@ -7,6 +7,7 @@ public class CubeMove : MonoBehaviour {
 	public float moveSpeed;
 	public float turnSpeed;
 	public float jumpHeight;
+	public float jumpSquash;
 	public Rigidbody rigid;
 	public Transform rotator;
 

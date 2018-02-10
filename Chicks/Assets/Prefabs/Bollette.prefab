@@ -53,6 +53,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -68,6 +69,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -110,7 +112,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 1
-  time: 5
+  lifetime: 5
+  image: {fileID: 21300000, guid: 42bbf8f6c63dc6046ad79416699c4eaf, type: 3}
+  self: {fileID: 4119657047247384}
+  cam: {fileID: 0}
 --- !u!135 &135712614308895540
 SphereCollider:
   m_ObjectHideFlags: 1

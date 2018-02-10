@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour {
 	public int damage = 1;
-	public int time = 5;
+	public int lifetime = 5;
+	public Camera cam;
+
 	// Use this for initialization
 	void Start () {
 		StartCoroutine(DestroyProjectile());
@@ -12,10 +14,10 @@ public class Projectile : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		//transform.LookAt(cam.transform.position);
 	}
 	IEnumerator DestroyProjectile(){
-		yield return new WaitForSeconds(time);
+		yield return new WaitForSeconds(lifetime);
 		Destroy(gameObject);
 	}
 }
