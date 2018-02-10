@@ -16,14 +16,12 @@ public class RunAway : MonoBehaviour {
 	// Update is called once per frame
 	void OnTriggerStay(Collider other) {
 		if (other.gameObject.name == "Player") {
-			Debug.Log("Player has entered chicken's trigger.");
 			transform.LookAt(target);
 			transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
 		}
 	}
 	void OnCollisionEnter(Collision other) {
 		if (other.gameObject.name == "Player") {
-			//
 			transform.position = chickenPen.position;
 			transform.rotation = chickenPen.rotation;
 		}
