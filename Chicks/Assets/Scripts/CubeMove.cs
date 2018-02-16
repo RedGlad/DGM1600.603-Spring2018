@@ -10,12 +10,13 @@ public class CubeMove : MonoBehaviour {
 	public float jumpSquash;
 	public Rigidbody rigid;
 	public Transform rotator;
+	public Transform resetAngle;
 
 	void Start () {
 		rigid = GetComponent<Rigidbody>();
 	}
 	
-	 void FixedUpdate () {
+	void FixedUpdate () {
 		var j = Input.GetAxis("Jump")* Time.deltaTime * jumpHeight;
 		var h = Input.GetAxis("Horizontal")* Time.deltaTime * turnSpeed;
 		var v = Input.GetAxis("Vertical")* Time.deltaTime * moveSpeed;
@@ -26,4 +27,9 @@ public class CubeMove : MonoBehaviour {
 		transform.Rotate(0,h,0);
 		transform.Translate(0,0,v);
     }
+	void Update(){
+		if (Input.GetKeyDown(KeyCode.RightBracket)) {
+			transform.SetPositionAndRotation(rigid.transform.position,resetAngle.transform.rotation);
+		}
+	}
 }
