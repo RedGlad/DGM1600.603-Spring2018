@@ -7,10 +7,8 @@ public class CubeMove : MonoBehaviour {
 	public float moveSpeed;
 	public float turnSpeed;
 	public float jumpHeight;
-	public float jumpSquash;
 	public Rigidbody rigid;
-	public Transform rotator;
-	public Transform resetAngle;
+	public Transform spawnPoint0, spawnPoint1, spawnPoint2;
 
 	void Start () {
 		rigid = GetComponent<Rigidbody>();
@@ -29,7 +27,16 @@ public class CubeMove : MonoBehaviour {
     }
 	void Update(){
 		if (Input.GetKeyDown(KeyCode.RightBracket)) {
-			transform.SetPositionAndRotation(rigid.transform.position,resetAngle.transform.rotation);
+			transform.SetPositionAndRotation(rigid.transform.position + new Vector3(0,0.5f,0), new Quaternion(0,0,0,0));
+		}
+		if (Input.GetKeyDown(KeyCode.LeftBracket)) {
+			transform.position = spawnPoint0.position;
+		}
+		if (Input.GetKeyDown(KeyCode.Quote)) {
+			transform.position = spawnPoint1.position;
+		}
+		if (Input.GetKeyDown(KeyCode.Semicolon)) {
+			transform.position = spawnPoint2.position;
 		}
 	}
 }

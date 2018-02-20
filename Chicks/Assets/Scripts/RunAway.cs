@@ -5,18 +5,17 @@ using UnityEngine;
 public class RunAway : MonoBehaviour {
 	// public Rigidbody enemy;
 	public float moveSpeed;
-	public Transform target;
-	public Transform chickenPen;
+	Transform chickenPen;
 	public int points = 10;
 	// Use this for initialization
 	void Start () {
-		
+		chickenPen = GameObject.FindGameObjectWithTag("Drop").transform;
 	}
 	
 	// Update is called once per frame
 	void OnTriggerStay(Collider other) {
 		if (other.gameObject.name == "Player") {
-			transform.LookAt(target);
+			transform.LookAt(other.gameObject.transform);
 			transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
 		}
 	}
