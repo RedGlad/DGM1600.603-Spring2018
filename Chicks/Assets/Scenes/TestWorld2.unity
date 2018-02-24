@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4422409, g: 0.49126208, b: 0.57115364, a: 1}
+  m_IndirectSpecularColor: {r: 0.4430063, g: 0.49219638, b: 0.5719246, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -197,6 +197,34 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 10813420}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &81647919
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 81647920}
+  m_Layer: 0
+  m_Name: SpawnPoint (4)
+  m_TagString: Respawn
+  m_Icon: {fileID: 1654036009018553494, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &81647920
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 81647919}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -13.65, y: 2.3099985, z: 15.96}
+  m_LocalScale: {x: 1, y: 1.2, z: 1.2000002}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &274313878
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,11 +375,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 358341830}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -13.65, y: 2.3099976, z: 31.350006}
+  m_LocalPosition: {x: -0.3, y: 2.3099976, z: 8.19}
   m_LocalScale: {x: 1, y: 1.2, z: 1.2000002}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &358620923
 GameObject:
@@ -366,7 +394,7 @@ GameObject:
   - component: {fileID: 358620924}
   m_Layer: 0
   m_Name: SnowPlane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -475,7 +503,7 @@ Transform:
   - {fileID: 859107168}
   - {fileID: 1866900223}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &536622782
 GameObject:
@@ -731,7 +759,7 @@ Transform:
   m_Children:
   - {fileID: 1616615721}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &658163604
 MonoBehaviour:
@@ -844,7 +872,7 @@ GameObject:
   - component: {fileID: 851325599}
   m_Layer: 0
   m_Name: DirtPlane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1043,50 +1071,8 @@ Transform:
   - {fileID: 536622783}
   - {fileID: 2034881834}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1135561375
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4164961788901650, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -3.8361528
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164961788901650, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.37
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164961788901650, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -26.12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164961788901650, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164961788901650, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164961788901650, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164961788901650, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4164961788901650, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: b1d92973e8d90eb4daef7b3d33643540, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1251936742
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,7 +1086,7 @@ GameObject:
   - component: {fileID: 1251936743}
   m_Layer: 0
   m_Name: DirtPlane2
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1264,7 +1250,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1.2, z: 1.2000002}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1578667360
 GameObject:
@@ -1379,9 +1365,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca4d274674409a64ab23da990a43299f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
   turnSpeed: 200
-  jumpHeight: 1000
+  jumpHeight: 10000
   rigid: {fileID: 1578667365}
   spawnPoint0: {fileID: 346538626}
   spawnPoint1: {fileID: 1811063064}
@@ -1502,11 +1488,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1665847979}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: 2, z: 7}
+  m_LocalPosition: {x: 6, y: 1.2, z: 7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1755733079
 GameObject:
@@ -1575,11 +1561,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1756105689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.189999, y: 2.3099995, z: 22.599998}
+  m_LocalPosition: {x: 19.08, y: 2.3099995, z: 11.23}
   m_LocalScale: {x: 1, y: 1.2, z: 1.2000002}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1756560998
 GameObject:
@@ -1594,7 +1580,7 @@ GameObject:
   - component: {fileID: 1756560999}
   m_Layer: 0
   m_Name: SnowPlane2
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1726,14 +1712,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1775117386}
-  m_LocalRotation: {x: 0.40979338, y: 0.52126235, z: -0.3144455, w: 0.6793224}
-  m_LocalPosition: {x: -0.31, y: 14.09, z: -2.13}
+  m_LocalRotation: {x: 0.40957606, y: 0.49673173, z: -0.2867882, w: 0.70940655}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1315035513}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 62.2, y: 75, z: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 60, y: 70, z: 0}
 --- !u!114 &1775117389
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1928,7 +1914,7 @@ GameObject:
   - component: {fileID: 1871657787}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2000,55 +1986,8 @@ Transform:
   m_Children:
   - {fileID: 613126382}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2006423118
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4300184652034246, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.7122474
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300184652034246, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300184652034246, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.9589828
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300184652034246, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300184652034246, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300184652034246, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300184652034246, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4300184652034246, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114682669591280812, guid: 12cb5668a63545b42bc2a250119a05d7,
-        type: 2}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1578667364}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 12cb5668a63545b42bc2a250119a05d7, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &2034881833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2155,11 +2094,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2078311617}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.8500004, y: 2.3099985, z: -6.6706657}
+  m_LocalPosition: {x: 9.35, y: 2.3099985, z: -6.6706657}
   m_LocalScale: {x: 1, y: 1.2, z: 1.2000002}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2144914434
 GameObject:
@@ -2174,7 +2113,7 @@ GameObject:
   - component: {fileID: 2144914435}
   m_Layer: 0
   m_Name: LoopPlane
-  m_TagString: Untagged
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
