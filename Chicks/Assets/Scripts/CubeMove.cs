@@ -14,7 +14,11 @@ public class CubeMove : MonoBehaviour {
 		rigid = GetComponent<Rigidbody>();
 	}
 	
-	void FixedUpdate () {
+	void OnCollisionStay() {
+		// Move();
+    }
+
+	void Update() {
 		var j = Input.GetAxis("Jump")* Time.deltaTime * jumpHeight;
 		var h = Input.GetAxis("Horizontal")* Time.deltaTime * turnSpeed;
 		var v = Input.GetAxis("Vertical")* Time.deltaTime * moveSpeed;
@@ -24,8 +28,8 @@ public class CubeMove : MonoBehaviour {
 		// transform.Translate(0,j,0);
 		transform.Rotate(0,h,0);
 		transform.Translate(0,0,v);
-    }
-	void Update(){
+	// }
+	// void Update(){
 		if (Input.GetKeyDown(KeyCode.RightBracket)) {
 			transform.SetPositionAndRotation(rigid.transform.position + new Vector3(0,0.5f,0), new Quaternion(0,0,0,0));
 		}

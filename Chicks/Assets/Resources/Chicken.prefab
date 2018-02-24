@@ -23,8 +23,8 @@ GameObject:
   - component: {fileID: 136563878794548552}
   - component: {fileID: 23957241134387728}
   - component: {fileID: 54814148659994116}
-  - component: {fileID: 114093879714380666}
   - component: {fileID: 135467717520570204}
+  - component: {fileID: 114682669591280812}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Untagged
@@ -54,6 +54,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -69,6 +70,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -99,7 +101,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114093879714380666
+--- !u!114 &114682669591280812
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,10 +109,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1383096274362392}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35298d11dc931c642bf7ceff64e7aacf, type: 3}
+  m_Script: {fileID: 11500000, guid: 09fa717093a013a4faa8edac4cc76547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
+  wanderSpeed: 0.5
   points: 10
 --- !u!135 &135467717520570204
 SphereCollider:
