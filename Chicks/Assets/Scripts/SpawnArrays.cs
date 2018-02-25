@@ -14,9 +14,12 @@ public class SpawnArrays : MonoBehaviour {
 	}
 
 	void Spawn(){
+		//spawn 3 chickens at random spawnpoints
 		int spawn = Random.Range(0, spawnPoints.Length);
-		while (spawn++ <= spawnPoints.Length) {
-			GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);
-		}
+		GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);
+		spawn = Random.Range(0, spawnPoints.Length);
+		GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);
+		spawn = Random.Range(0, spawnPoints.Length);
+		GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);
 	}
 }

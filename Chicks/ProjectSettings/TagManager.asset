@@ -7,6 +7,7 @@ TagManager:
   - Drop
   - Wall
   - Floor
+  - Chicken
   layers:
   - Default
   - TransparentFX

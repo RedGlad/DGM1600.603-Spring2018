@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ChickAI : MonoBehaviour {
 
-	public float moveSpeed;
+	public float runSpeed;
 	public float wanderSpeed;
 	Transform chickenPen;
 	public int points = 10;
@@ -23,18 +23,26 @@ public class ChickAI : MonoBehaviour {
 	}
 	void Wander() {
 		int rnd = Random.Range(30,330);
+		// set ray direction to forward of the chicken
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+		// move chicken forward
 		transform.Translate(Vector3.forward * wanderSpeed * Time.deltaTime);
-
-		if (Physics.Raycast(transform.position, fwd, 2)) {
+		//using random degree above, rotate chicken when it sees a wall and draw a ray
+		if (Physics.Raycast(transform.position, fwd, 1.5f)) {
 			transform.Rotate(0,rnd,0);
-			Debug.DrawRay(transform.position, fwd*2, Color.red, 100);
+			Debug.DrawRay(transform.position, fwd*1.5f, Color.red, 5);
 		}
 	}
 	void Run() {
-		transform.Translate(Vector3.back * moveSpeed * Time.deltaTime);
+		// set ray direction to forward of the chicken
+		Vector3 fwd = transform.TransformDirection(Vector3.forward);
+		// face chicken away from player and run
+		transform.Rotate(0,180,0);
+		Debug.DrawRay(transform.position, fwd*1.5f, Color.green, 5);
+		transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
 	}
 	void OnCollisionEnter(Collision other) {
+		// teleport chicken to pen if touched by player
 		if (other.gameObject.name == "Player") {
 			transform.position = chickenPen.position;
 			transform.rotation = chickenPen.rotation;
