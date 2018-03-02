@@ -6,6 +6,7 @@ public class SpawnArrays : MonoBehaviour {
 
 	public GameObject[] spawnPoints;
 	public GameObject chicken;
+	public int chickenCount;
 
 	void Start () {
 		spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
@@ -15,11 +16,10 @@ public class SpawnArrays : MonoBehaviour {
 
 	void Spawn(){
 		//spawn 3 chickens at random spawnpoints
-		int spawn = Random.Range(0, spawnPoints.Length);
-		GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);
-		spawn = Random.Range(0, spawnPoints.Length);
-		GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);
-		spawn = Random.Range(0, spawnPoints.Length);
-		GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);
+		for (int i = 0; i < chickenCount; i++) {
+			int spawn = Random.Range(0, spawnPoints.Length);
+			GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);
+			print("Chicken " + i + " has been created");
+		}
 	}
 }
