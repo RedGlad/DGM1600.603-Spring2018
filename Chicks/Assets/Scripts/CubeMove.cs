@@ -21,17 +21,16 @@ public class CubeMove : MonoBehaviour {
 		rigid.AddForce(0,j,0);
 	}
 	void Update() {
-		// var j = Input.GetAxis("Jump")* Time.deltaTime * jumpHeight;
 		var h = Input.GetAxis("Horizontal")* Time.deltaTime * turnSpeed;
 		var v = Input.GetAxis("Vertical")* Time.deltaTime * moveSpeed;
-		//var j2 = rotator.TransformDirection(Vector3.up*jumpHeight);
+		var xMath = transform.rotation.x * Time.deltaTime * 1000;
 		
-		// rigid.AddForce(0,j,0);
-		// transform.Translate(0,j,0);
 		transform.Rotate(0,h,0);
-		transform.Translate(0,0,v);
-	// }
-	// void Update(){
+		transform.Translate(0,0,v); //set move speed around 10
+		// rigid.AddForce(transform.TransformDirection(Vector3.forward)*v); //set move speed around 1000
+		// rigid.AddForce(0,0,xMath);
+
+		// teleportation section
 		if (Input.GetKeyDown(KeyCode.RightBracket)) {
 			transform.SetPositionAndRotation(rigid.transform.position + new Vector3(0,0.5f,0), new Quaternion(0,0,0,0));
 		}
