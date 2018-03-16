@@ -2,20 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChickAI : MonoBehaviour {
+public class WolfAI : MonoBehaviour {
 
 	public float runSpeed;
 	public float wanderSpeed;
-	Transform chickenPen;
-	public int points = 10;
+	public int damage = 10;
 
-	void Start () {
-		chickenPen = GameObject.FindGameObjectWithTag("Drop").transform;
-	}
 	void OnTriggerStay(Collider other) {
 		if (other.gameObject.name == "Player") {
 			transform.LookAt(other.gameObject.transform);
-			Run();
+			Attack();
 		}
 		else {
 			Wander();
@@ -28,7 +24,7 @@ public class ChickAI : MonoBehaviour {
 		RaycastHit hit;
 		// move chicken forward
 		transform.Translate(Vector3.forward * wanderSpeed * Time.deltaTime);
-		//using random degree above, rotate chicken when it sees a wall and draw a ray
+		//using random degree above, rotate wolf when it sees a wall and draw a ray
 		if (Physics.Raycast(transform.position, fwd, out hit, 1.5f)) {
 			if (hit.collider.tag == "Wall"){
 				transform.Rotate(0,rnd,0);
@@ -36,19 +32,25 @@ public class ChickAI : MonoBehaviour {
 			}
 		}
 	}
-	void Run() {
-		// set ray direction to forward of the chicken
+	void Attack() {
+		// set ray direction to forward of the wolf
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
-		// face chicken away from player and run
-		transform.Rotate(0,180,0);
+		// face player and run at
 		Debug.DrawRay(transform.position, fwd*1.5f, Color.green, 5);
 		transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
 	}
 	void OnCollisionEnter(Collision other) {
-		// teleport chicken to pen if touched by player
+		// damage player if touched by wolf
 		if (other.gameObject.name == "Player") {
-			transform.position = chickenPen.position;
-			transform.rotation = chickenPen.rotation;
+			var hit = other.gameObject;
+			var health = hit.GetComponent<PlayerHealth>();
+			other.gameObject.GetComponent<PlayerHealth>();
+			if (health != null){
+				health.TakeDamage(damage);
+			}
+		}
+		if (other.gameObject.tag == "Bullet"){
+			Destroy(gameObject);
 		}
 	}
 }

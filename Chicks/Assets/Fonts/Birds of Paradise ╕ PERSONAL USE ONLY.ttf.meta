@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: db33689a3c80c3945a8dd67fa3e7b97c
+timeCreated: 1521160751
+licenseType: Pro
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Birds of Paradise  Personal use
+  fontNames:
+  - Birds of Paradise  Personal use
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

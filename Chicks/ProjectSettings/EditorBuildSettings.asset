@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MenMenoi.unity
+    guid: 3a8099540ae831d4689581a114b44ccb
+  - enabled: 1
+    path: Assets/Scenes/TestWorld2.unity
+    guid: a9aa0fd5248d55344b612bf9b3506f8b

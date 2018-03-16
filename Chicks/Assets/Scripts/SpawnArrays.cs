@@ -15,7 +15,7 @@ public class SpawnArrays : MonoBehaviour {
 	}
 
 	void Spawn(){
-		//spawn 3 chickens at random spawnpoints
+		//spawn chickenCount amount chickens at random spawnpoints
 		for (int i = 0; i < chickenCount; i++) {
 			int spawn = Random.Range(0, spawnPoints.Length);
 			GameObject.Instantiate(chicken, spawnPoints[spawn].transform.position, Quaternion.identity);

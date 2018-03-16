@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - Floor
   - Chicken
+  - Bullet
   layers:
   - Default
   - TransparentFX

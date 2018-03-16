@@ -9,15 +9,20 @@ public class PlayerHealth : MonoBehaviour {
 	public int currentHealth = maxHealth;
 	public Text hp;
 	public Text maxHp;
+	public Slider hpBar;
 	
 	void Update () {
 		hp.text = currentHealth.ToString();
 		maxHp.text = maxHealth.ToString();
+		if (currentHealth >= maxHealth) {
+			currentHealth = maxHealth;
+		}
+		hpBar.value = currentHealth;
 	}
 
 	public void TakeDamage(int amount) {
 		currentHealth -= amount;
-		if(currentHealth <= 0) {
+		if (currentHealth <= 0) {
 			currentHealth = 0;
 			print("Game Over");
 		}
