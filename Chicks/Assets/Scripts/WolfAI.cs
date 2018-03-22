@@ -8,6 +8,10 @@ public class WolfAI : MonoBehaviour {
 	public float wanderSpeed;
 	public int damage = 10;
 
+	void Start() {
+		int rnd = Random.Range(0,360);
+		transform.Rotate(0,rnd,0);
+	}
 	void OnTriggerStay(Collider other) {
 		if (other.gameObject.name == "Player") {
 			transform.LookAt(other.gameObject.transform);

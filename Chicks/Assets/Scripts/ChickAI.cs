@@ -11,6 +11,8 @@ public class ChickAI : MonoBehaviour {
 
 	void Start () {
 		chickenPen = GameObject.FindGameObjectWithTag("Drop").transform;
+		int rnd = Random.Range(0,360);
+		transform.Rotate(0,rnd,0);
 	}
 	void OnTriggerStay(Collider other) {
 		if (other.gameObject.name == "Player") {
