@@ -52,8 +52,10 @@ public class WolfAI : MonoBehaviour {
 			if (health != null){
 				health.TakeDamage(damage);
 			}
+			transform.Rotate(0,180,0);
 		}
 		if (other.gameObject.tag == "Bullet"){
+			Destroy(other.gameObject);
 			Destroy(gameObject);
 		}
 	}

@@ -27,7 +27,7 @@ public class SpawnArrays : MonoBehaviour {
 		for (int i = 0; i < wolfCount; i++) {
 			int spawn = Random.Range(0, spawnPoints.Length);
 			GameObject.Instantiate(wolf, spawnPoints[spawn].transform.position, Quaternion.identity);
-			print("Wolf" + i + " has been created.");
+			print("Wolf " + i + " has been created.");
 		}
 	}
 }

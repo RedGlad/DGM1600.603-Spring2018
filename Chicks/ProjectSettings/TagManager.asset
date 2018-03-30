@@ -9,6 +9,7 @@ TagManager:
   - Floor
   - Chicken
   - Bullet
+  - Wolf
   layers:
   - Default
   - TransparentFX
