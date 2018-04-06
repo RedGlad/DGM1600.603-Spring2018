@@ -22,7 +22,8 @@ public class CubeMove : MonoBehaviour {
 	}
 	void Update() {
 		var h = Input.GetAxis("Horizontal")* Time.deltaTime * turnSpeed;
-		var v = Input.GetAxis("Vertical")* Time.deltaTime * moveSpeed;
+		// var v = Input.GetAxis("Vertical")* Time.deltaTime * moveSpeed; // Input Speed
+		var v = moveSpeed * Time.deltaTime; // Constant Speed
 		// var xMath = transform.rotation.x * Time.deltaTime * 1000;
 		
 		transform.Rotate(0,h,0);

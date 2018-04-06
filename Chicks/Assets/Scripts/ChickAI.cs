@@ -19,12 +19,12 @@ public class ChickAI : MonoBehaviour {
 			transform.LookAt(other.gameObject.transform);
 			Run();
 		}
-		else {
+		if (other.gameObject.name == "Ground") {
 			Wander();
 		}
 	}
 	void Wander() {
-		int rnd = Random.Range(30,330);
+		int rnd = Random.Range(10,350);
 		// set ray direction to forward of the chicken
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		RaycastHit hit;

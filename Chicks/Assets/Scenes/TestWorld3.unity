@@ -2178,6 +2178,8 @@ MonoBehaviour:
   wolf: {fileID: 1636327134823400, guid: 8946d0b4a64f30548bda3bcab96e6686, type: 2}
   chickenCount: 10
   wolfCount: 5
+  spawnRangeSize: 70
+  spawnHeight: 0.5
 --- !u!4 &1755733081
 Transform:
   m_ObjectHideFlags: 0

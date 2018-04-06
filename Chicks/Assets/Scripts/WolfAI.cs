@@ -17,12 +17,12 @@ public class WolfAI : MonoBehaviour {
 			transform.LookAt(other.gameObject.transform);
 			Attack();
 		}
-		else {
+		if (other.gameObject.name == "Ground") {
 			Wander();
 		}
 	}
 	void Wander() {
-		int rnd = Random.Range(30,330);
+		int rnd = Random.Range(10,350);
 		// set ray direction to forward of the chicken
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		RaycastHit hit;
@@ -52,7 +52,6 @@ public class WolfAI : MonoBehaviour {
 			if (health != null){
 				health.TakeDamage(damage);
 			}
-			transform.Rotate(0,180,0);
 		}
 		if (other.gameObject.tag == "Bullet"){
 			Destroy(other.gameObject);

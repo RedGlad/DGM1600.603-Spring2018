@@ -28,7 +28,7 @@ GameObject:
   - component: {fileID: 114418904866806634}
   - component: {fileID: 195974469786373882}
   m_Layer: 0
-  m_Name: Chicken
+  m_Name: Chicken - NavMesh
   m_TagString: Chicken
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1383096274362392}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2ae330589ac9c8f44b7e6d90d18694e1, type: 3}
   m_Name: 
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1383096274362392}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 09fa717093a013a4faa8edac4cc76547, type: 3}
   m_Name: 
