@@ -15,9 +15,9 @@ public class CameraFollow : MonoBehaviour {
         transform.position = player.position;
         transform.Rotate(0,rot,0);
         transform.localScale += new Vector3(zoom,zoom,zoom);
-        if (Input.GetMouseButton(1) == false){
+        // if (Input.GetMouseButton(1) == false){
             transform.rotation = player.rotation;
-        }
+        // }
         // if (transform.rotation.y < player.rotation.y) {
         //     transform.Rotate(0,rotB,0);
         // }

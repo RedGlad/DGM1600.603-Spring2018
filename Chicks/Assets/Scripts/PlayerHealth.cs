@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour {
 
-	public const int maxHealth = 100;
+	public const int maxHealth = 10;
 	public int currentHealth = maxHealth;
 	public Text hp;
 	public Text maxHp;

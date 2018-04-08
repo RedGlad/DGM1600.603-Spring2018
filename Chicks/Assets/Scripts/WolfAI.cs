@@ -6,7 +6,7 @@ public class WolfAI : MonoBehaviour {
 
 	public float runSpeed;
 	public float wanderSpeed;
-	public int damage = 10;
+	public int damage = 1;
 
 	void Start() {
 		int rnd = Random.Range(0,360);
@@ -17,7 +17,7 @@ public class WolfAI : MonoBehaviour {
 			transform.LookAt(other.gameObject.transform);
 			Attack();
 		}
-		if (other.gameObject.name == "Ground") {
+		else if (other.gameObject.name == "Ground") {
 			Wander();
 		}
 	}
@@ -44,18 +44,19 @@ public class WolfAI : MonoBehaviour {
 		transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
 	}
 	void OnCollisionEnter(Collision other) {
-		// damage player if touched by wolf
-		if (other.gameObject.name == "Player") {
+		//don't let wolf in safezone
+		if (other.gameObject.name == "SafeZone") {
+			transform.LookAt(new Vector3(0,0,0));
+			Wander();
+		}
+		//damage player if touched by wolf
+		else if (other.gameObject.name == "Player") {
 			var hit = other.gameObject;
 			var health = hit.GetComponent<PlayerHealth>();
 			other.gameObject.GetComponent<PlayerHealth>();
 			if (health != null){
 				health.TakeDamage(damage);
 			}
-		}
-		if (other.gameObject.tag == "Bullet"){
-			Destroy(other.gameObject);
-			Destroy(gameObject);
 		}
 	}
 }

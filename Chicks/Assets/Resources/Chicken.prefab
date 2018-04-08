@@ -25,8 +25,6 @@ GameObject:
   - component: {fileID: 54814148659994116}
   - component: {fileID: 135467717520570204}
   - component: {fileID: 114682669591280812}
-  - component: {fileID: 114418904866806634}
-  - component: {fileID: 195974469786373882}
   m_Layer: 0
   m_Name: Chicken
   m_TagString: Chicken
@@ -56,6 +54,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -71,6 +70,7 @@ MeshRenderer:
   m_PreserveUVs: 1
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -101,19 +101,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &114418904866806634
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1383096274362392}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ae330589ac9c8f44b7e6d90d18694e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  roamDistance: 100
-  maxWanderTime: 5
 --- !u!114 &114682669591280812
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -125,8 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09fa717093a013a4faa8edac4cc76547, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 3
-  wanderSpeed: 1
+  runSpeed: 4
+  minWanderSpeed: 0.5
+  maxWanderSpeed: 3
   points: 10
 --- !u!135 &135467717520570204
 SphereCollider:
@@ -153,24 +141,3 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &195974469786373882
-NavMeshAgent:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1383096274362392}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 1
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4

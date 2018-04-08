@@ -5,16 +5,20 @@ using UnityEngine;
 public class ChickAI : MonoBehaviour {
 
 	public float runSpeed;
-	public float wanderSpeed;
+	public float minWanderSpeed;
+	public float maxWanderSpeed;
 	Transform chickenPen;
 	public int points = 10;
 
 	void Start () {
+		//find chicken pen
 		chickenPen = GameObject.FindGameObjectWithTag("Drop").transform;
-		int rnd = Random.Range(0,360);
+		//turn a random direction before moving
+		float rnd = Random.Range(0,360);
 		transform.Rotate(0,rnd,0);
 	}
 	void OnTriggerStay(Collider other) {
+		//choose movement based on situation
 		if (other.gameObject.name == "Player") {
 			transform.LookAt(other.gameObject.transform);
 			Run();
@@ -24,12 +28,13 @@ public class ChickAI : MonoBehaviour {
 		}
 	}
 	void Wander() {
-		int rnd = Random.Range(10,350);
+		float rnd = Random.Range(10,350);
+		float rndSpeed = Random.Range(minWanderSpeed,maxWanderSpeed);
 		// set ray direction to forward of the chicken
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		RaycastHit hit;
-		// move chicken forward
-		transform.Translate(Vector3.forward * wanderSpeed * Time.deltaTime);
+		// move chicken forward using random speed chosen above
+		transform.Translate(Vector3.forward * rndSpeed * Time.deltaTime);
 		//using random degree above, rotate chicken when it sees a wall and draw a ray
 		if (Physics.Raycast(transform.position, fwd, out hit, 1.5f)) {
 			if (hit.collider.tag == "Wall"){
@@ -50,7 +55,6 @@ public class ChickAI : MonoBehaviour {
 		// teleport chicken to pen if touched by player
 		if (other.gameObject.name == "Player") {
 			transform.position = chickenPen.position;
-			transform.rotation = chickenPen.rotation;
 		}
 	}
 }
