@@ -53,7 +53,6 @@ public class WolfAI : MonoBehaviour {
 		else if (other.gameObject.name == "Player") {
 			var hit = other.gameObject;
 			var health = hit.GetComponent<PlayerHealth>();
-			other.gameObject.GetComponent<PlayerHealth>();
 			if (health != null){
 				health.TakeDamage(damage);
 			}

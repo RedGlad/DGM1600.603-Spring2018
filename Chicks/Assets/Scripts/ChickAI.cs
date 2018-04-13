@@ -8,7 +8,8 @@ public class ChickAI : MonoBehaviour {
 	public float minWanderSpeed;
 	public float maxWanderSpeed;
 	Transform chickenPen;
-	public int points = 10;
+	public int points = 1;
+	public GameObject scoreManager;
 
 	void Start () {
 		//find chicken pen
@@ -16,6 +17,7 @@ public class ChickAI : MonoBehaviour {
 		//turn a random direction before moving
 		float rnd = Random.Range(0,360);
 		transform.Rotate(0,rnd,0);
+		scoreManager = GameObject.FindGameObjectWithTag("Score");
 	}
 	void OnTriggerStay(Collider other) {
 		//choose movement based on situation
@@ -55,6 +57,7 @@ public class ChickAI : MonoBehaviour {
 		// teleport chicken to pen if touched by player
 		if (other.gameObject.name == "Player") {
 			transform.position = chickenPen.position;
+			// scoreManager.AddPoints(points);
 		}
 	}
 }

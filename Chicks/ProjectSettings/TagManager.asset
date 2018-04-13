@@ -10,6 +10,7 @@ TagManager:
   - Chicken
   - Bullet
   - Wolf
+  - Score
   layers:
   - Default
   - TransparentFX

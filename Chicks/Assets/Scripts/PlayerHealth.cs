@@ -10,7 +10,12 @@ public class PlayerHealth : MonoBehaviour {
 	public Text hp;
 	public Text maxHp;
 	public Slider hpBar;
+	public Text deathText;
+	bool dead;
 	
+	void Start () {
+		deathText.GetComponent<Text>().enabled = false;
+	}
 	void Update () {
 		hp.text = currentHealth.ToString();
 		maxHp.text = maxHealth.ToString();
@@ -18,6 +23,11 @@ public class PlayerHealth : MonoBehaviour {
 			currentHealth = maxHealth;
 		}
 		hpBar.value = currentHealth;
+		if (dead == true) {
+			if (Input.GetKeyDown(KeyCode.Escape)) {
+				UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+			}
+		}
 	}
 
 	public void TakeDamage(int amount) {
@@ -25,6 +35,9 @@ public class PlayerHealth : MonoBehaviour {
 		if (currentHealth <= 0) {
 			currentHealth = 0;
 			print("Game Over");
+			Time.timeScale = 0;
+			deathText.GetComponent<Text>().enabled = true;
+			dead = true;
 		}
 	}
 }
