@@ -6,20 +6,19 @@ using UnityEngine.UI;
 public class Shoot : MonoBehaviour {
 	public Rigidbody projectile;
 	public Transform target;
-	public int shootSpeed;
-	public int currentAmmo;
-	public Text ammo;
+	public int shootSpeed, ammo;
+	public Text ammoText;
 	
 	// Update is called once per frame
 	void Update () {
-		ammo.text = currentAmmo.ToString();
+		ammoText.text = ammo.ToString();
 		if (Input.GetButtonDown("Fire1"))
 		{
-			if (currentAmmo >= 1) {
+			if (ammo >= 1) {
 				Rigidbody clone;
 				clone = (Rigidbody)Instantiate(projectile, target.position, target.rotation);
 				clone.velocity = target.TransformDirection (Vector3.forward*shootSpeed*Time.deltaTime);
-				currentAmmo --;
+				ammo --;
 			}
 			else {
 				print("Out of ammo!");

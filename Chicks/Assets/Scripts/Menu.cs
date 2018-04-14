@@ -11,7 +11,6 @@ public class Menu : MonoBehaviour {
 	public void LoadLevel () {
 		SceneManager.LoadScene(levelToLoad);
 	}
-	
 	// Use this to quit.
 	public void LevelExit() {
 		Application.Quit();

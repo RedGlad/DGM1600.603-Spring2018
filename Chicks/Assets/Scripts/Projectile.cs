@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour {
-	public int lifetime = 3;
+	public int lifetime;
 	Transform cam;
 
 	void Start () {

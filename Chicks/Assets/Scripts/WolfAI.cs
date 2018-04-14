@@ -13,7 +13,12 @@ public class WolfAI : MonoBehaviour {
 		transform.Rotate(0,rnd,0);
 	}
 	void OnTriggerStay(Collider other) {
-		if (other.gameObject.name == "Player") {
+		//don't let wolf in safezone
+		if (other.gameObject.name == "SafeZone") {
+			transform.LookAt(new Vector3(0,0,0));
+			Wander();
+		}
+		else if (other.gameObject.name == "Player") {
 			transform.LookAt(other.gameObject.transform);
 			Attack();
 		}
@@ -44,18 +49,12 @@ public class WolfAI : MonoBehaviour {
 		transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
 	}
 	void OnCollisionEnter(Collision other) {
-		//don't let wolf in safezone
-		if (other.gameObject.name == "SafeZone") {
-			transform.LookAt(new Vector3(0,0,0));
-			Wander();
-		}
 		//damage player if touched by wolf
-		else if (other.gameObject.name == "Player") {
+		if (other.gameObject.name == "Player") {
 			var hit = other.gameObject;
-			var health = hit.GetComponent<PlayerHealth>();
-			if (health != null){
+			var health = hit.GetComponent<PlayerUIControl>();
+			if (health != null)
 				health.TakeDamage(damage);
-			}
 		}
 	}
 }

@@ -5,12 +5,9 @@ using UnityEngine;
 public class SpawnArrays : MonoBehaviour {
 
 	// public GameObject[] spawnPoints;
-	public GameObject chicken;
-	public GameObject wolf;
-	public int chickenCount;
-	public int wolfCount;
-	public float spawnRangeSize;
-	public float spawnHeight;
+	public GameObject chicken, wolf;
+	public int chickenCount, wolfCount;
+	public float spawnRangeSize, spawnHeight;
 
 	void Start () {
 		// spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
@@ -20,18 +17,20 @@ public class SpawnArrays : MonoBehaviour {
 	}
 
 	void Spawn(){
-		//spawn chickens and wolves at random locations within range of script.
+		// Spawn chickens and wolves at random locations within range of script.
+		// Originally used the array of spawnpoints, which is why the script is named SpawnArrays.
+		// I decided I liked a completely random spawn system better.
 		for (int i = 0; i < chickenCount; i++) {
 			float rndX = Random.Range(-spawnRangeSize/2,spawnRangeSize/2);
 			float rndY = Random.Range(-spawnRangeSize/2,spawnRangeSize/2);
 			GameObject.Instantiate(chicken, new Vector3(rndX,spawnHeight,rndY), Quaternion.identity);
-			print("Chicken " + (i + 1) + "/" + chickenCount + " has been created.");
 		}
 		for (int i = 0; i < wolfCount; i++) {
 			float rndX = Random.Range(-spawnRangeSize/2,spawnRangeSize/2);
 			float rndY = Random.Range(-spawnRangeSize/2,spawnRangeSize/2);
 			GameObject.Instantiate(wolf, new Vector3(rndX,spawnHeight,rndY), Quaternion.identity);
-			print("Wolf " + (i + 1) + "/" + wolfCount + " has been created.");
 		}
+		print(chickenCount + " chickens have been created.");
+		print(wolfCount + " wolves have been created.");
 	}
 }
