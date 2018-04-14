@@ -9,6 +9,7 @@ public class Projectile : MonoBehaviour {
 	void Start () {
 		// Start lifetime countdown
 		StartCoroutine(DestroyProjectile());
+		// Play sound here when added
 		// Find camera to track
 		cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
 	}
@@ -23,6 +24,7 @@ public class Projectile : MonoBehaviour {
 		}
 		// Destroy the bullet AND wolf if hitting wolf
 		else if (other.gameObject.tag == "Wolf") {
+			// Play sound here when added
 			Destroy(other.gameObject);
 			Destroy(gameObject);
 		}

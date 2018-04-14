@@ -18,9 +18,9 @@ public class PlayerUIControl : MonoBehaviour {
 	}
 	void Start () {
 		// Initialize UI components
-		pauseText.GetComponent<Text>().enabled = false;
-		deathText.GetComponent<Text>().enabled = false;
-		winText.GetComponent<Text>().enabled = false;
+		pauseText.gameObject.SetActive(false);
+		deathText.gameObject.SetActive(false);
+		winText.gameObject.SetActive(false);
 		textPanel.SetActive(false);
 		isPaused = false;
 		isDead = false;
@@ -51,7 +51,7 @@ public class PlayerUIControl : MonoBehaviour {
 		if (currentHealth <= 0) {
 			currentHealth = 0;
 			Time.timeScale = 0;
-			deathText.GetComponent<Text>().enabled = true;
+			deathText.gameObject.SetActive(true);
 			textPanel.SetActive(true);
 			isDead = true;
 			// Press Space to return to Main Menu
@@ -63,7 +63,7 @@ public class PlayerUIControl : MonoBehaviour {
 		if (score >= winScore) {
 			score = winScore;
 			Time.timeScale = 0;
-			winText.GetComponent<Text>().enabled = true;
+			winText.gameObject.SetActive(true);
 			textPanel.SetActive(true);
 			isWon = true;
 			// Press Space to return to Main Menu
@@ -76,7 +76,7 @@ public class PlayerUIControl : MonoBehaviour {
 		if (isPaused == false && isDead == false && isWon == false) {
 			if (Input.GetKeyDown(KeyCode.Escape)) {
 				textPanel.SetActive(true);
-				pauseText.GetComponent<Text>().enabled = true;
+				pauseText.gameObject.SetActive(true);
 				Time.timeScale = 0;
 				isPaused = true;
 			}
@@ -85,7 +85,7 @@ public class PlayerUIControl : MonoBehaviour {
 		else if (isPaused == true) {
 			if (Input.GetKeyDown(KeyCode.Escape)) {
 				Time.timeScale = 1;
-				pauseText.GetComponent<Text>().enabled = false;
+				pauseText.gameObject.SetActive(false);
 				textPanel.SetActive(false);
 				isPaused = false;
 			}
