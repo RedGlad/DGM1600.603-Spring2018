@@ -13,25 +13,25 @@ public class PlayerUIControl : MonoBehaviour {
 	public GameObject chickCountScript;
 	
 	void Awake () {
-		// Make sure game is still running
+		// Make sure game does not start frozen or paused
 		Time.timeScale = 1;
 	}
 	void Start () {
-		// Initialize UI components and variables
-		winText.GetComponent<Text>().enabled = false;
+		// Initialize UI components
 		pauseText.GetComponent<Text>().enabled = false;
 		deathText.GetComponent<Text>().enabled = false;
+		winText.GetComponent<Text>().enabled = false;
 		textPanel.SetActive(false);
-
-		currentHealth = maxHealth;
-		hpBar.maxValue = maxHealth;
-		// Pull number of spawned chickens to be number of chickens needed to win.
-		winScore = chickCountScript.GetComponent<SpawnArrays>().chickenCount;
-		score = 0;
-
 		isPaused = false;
 		isDead = false;
 		isWon = false;
+
+		// Initialize variables
+		currentHealth = maxHealth;
+		hpBar.maxValue = maxHealth;
+		score = 0;
+		// Make the score needed to win equal to the amount of chickens being spawned
+		winScore = chickCountScript.GetComponent<SpawnArrays>().chickenCount;
 	}
 	void Update () {
 		// Prevent variables from being out of range
@@ -42,10 +42,10 @@ public class PlayerUIControl : MonoBehaviour {
 			currentHealth = maxHealth;
 		}
 
-		// Update all variable displays (except ammo, handled by Shoot script)
+		// Update all variable displays (except ammo, which is handled by the Shoot class)
 		hp.text = "HP: " + currentHealth.ToString() + "/" + maxHealth.ToString();
 		hpBar.value = currentHealth;
-		scoreText.text = "Chickens Caught: " + score.ToString() + "/" + winScore.ToString();
+		scoreText.text = score.ToString() + "/" + winScore.ToString();
 
 		// Trigger loss scenario
 		if (currentHealth <= 0) {
@@ -72,8 +72,7 @@ public class PlayerUIControl : MonoBehaviour {
 			}
 		}
 
-		// Trigger Pause menu
-
+		// Trigger Pause Menu
 		if (isPaused == false && isDead == false && isWon == false) {
 			if (Input.GetKeyDown(KeyCode.Escape)) {
 				textPanel.SetActive(true);
@@ -82,6 +81,7 @@ public class PlayerUIControl : MonoBehaviour {
 				isPaused = true;
 			}
 		}
+		// De-trigger Pause Menu
 		else if (isPaused == true) {
 			if (Input.GetKeyDown(KeyCode.Escape)) {
 				Time.timeScale = 1;
@@ -98,11 +98,11 @@ public class PlayerUIControl : MonoBehaviour {
 		}
 	}
 	public void TakeDamage(int amount) {
-		// Damage player using amount from object calling script
+		// Damage player using amount from object calling script (WolfAI)
 		currentHealth -= amount;
 	}
 	public void AddPoints(int scoreToAdd) {
-		// Add points using amount from object calling script
+		// Add points using amount from object calling script (ChickAI)
 		score += scoreToAdd;
 	}
 }

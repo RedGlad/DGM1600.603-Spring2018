@@ -9,18 +9,23 @@ public class Shoot : MonoBehaviour {
 	public int shootSpeed, ammo;
 	public Text ammoText;
 	
-	// Update is called once per frame
 	void Update () {
+		// Update UI
 		ammoText.text = ammo.ToString();
+
 		if (Input.GetButtonDown("Fire1"))
 		{
+			// Shoot gun
 			if (ammo >= 1) {
+				// Play sound here when added
 				Rigidbody clone;
 				clone = (Rigidbody)Instantiate(projectile, target.position, target.rotation);
 				clone.velocity = target.TransformDirection (Vector3.forward*shootSpeed*Time.deltaTime);
 				ammo --;
 			}
+			// Jam gun
 			else {
+				// Play sound here when added
 				print("Out of ammo!");
 			}
 		}

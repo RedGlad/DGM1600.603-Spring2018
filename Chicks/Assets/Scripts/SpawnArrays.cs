@@ -10,15 +10,9 @@ public class SpawnArrays : MonoBehaviour {
 	public float spawnRangeSize, spawnHeight;
 
 	void Start () {
-		// spawnPoints = GameObject.FindGameObjectsWithTag("Respawn");
-		chicken = (GameObject)Resources.Load("Chicken", typeof(GameObject));
-		wolf = (GameObject)Resources.Load("Wolf", typeof(GameObject));
-		Spawn();
-	}
-
-	void Spawn(){
-		// Spawn chickens and wolves at random locations within range of script.
-		// Originally used the array of spawnpoints, which is why the script is named SpawnArrays.
+		// Spawn set numbers of chickens and wolves at random locations around origin.
+		// This originally used the spawnpoints array, referencing preset spawn points,
+		// which is why the script is named SpawnArrays.
 		// I decided I liked a completely random spawn system better.
 		for (int i = 0; i < chickenCount; i++) {
 			float rndX = Random.Range(-spawnRangeSize/2,spawnRangeSize/2);

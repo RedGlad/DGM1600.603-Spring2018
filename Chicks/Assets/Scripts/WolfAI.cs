@@ -4,57 +4,64 @@ using UnityEngine;
 
 public class WolfAI : MonoBehaviour {
 
-	public float runSpeed;
-	public float wanderSpeed;
+	public float runSpeed, minWanderSpeed, maxWanderSpeed, seeDistance;
 	public int damage = 1;
 
 	void Start() {
-		int rnd = Random.Range(0,360);
-		transform.Rotate(0,rnd,0);
+		// Point in a random direction when initialized
+		transform.Rotate(0,Random.Range(0,360),0);
+	}
+		void Update () {
+		// Bring glitched away objects back to playfield
+		if (transform.position.y < 0.0f) {
+			transform.SetPositionAndRotation(new Vector3(0,10,0), Quaternion.identity);
+		}
 	}
 	void OnTriggerStay(Collider other) {
-		//don't let wolf in safezone
+		// Avoid SafeZone
 		if (other.gameObject.name == "SafeZone") {
 			transform.LookAt(new Vector3(0,0,0));
 			Wander();
 		}
+		// Chase Player
 		else if (other.gameObject.name == "Player") {
 			transform.LookAt(other.gameObject.transform);
 			Attack();
 		}
+		// Wander aimlessly
 		else if (other.gameObject.name == "Ground") {
 			Wander();
 		}
 	}
 	void Wander() {
-		int rnd = Random.Range(10,350);
-		// set ray direction to forward of the chicken
+		// Choose random speed to travel
+		float rndSpeed = Random.Range(minWanderSpeed,maxWanderSpeed);
+		transform.Translate(Vector3.forward * rndSpeed * Time.deltaTime);
+		// Rotate a random degree when Raycast hits a wall or chicken
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
 		RaycastHit hit;
-		// move chicken forward
-		transform.Translate(Vector3.forward * wanderSpeed * Time.deltaTime);
-		//using random degree above, rotate wolf when it sees a wall and draw a ray
-		if (Physics.Raycast(transform.position, fwd, out hit, 1.5f)) {
-			if (hit.collider.tag == "Wall"){
+		float rnd = Random.Range(10,350);
+		if (Physics.Raycast(transform.position, fwd, out hit, seeDistance)) {
+			if (hit.collider.tag == "Wall" || hit.collider.tag == "Chicken"){
 				transform.Rotate(0,rnd,0);
-				Debug.DrawRay(transform.position, fwd*1.5f, Color.red, 5);
+				Debug.DrawRay(transform.position, fwd*seeDistance, Color.red, 5);
 			}
 		}
 	}
 	void Attack() {
-		// set ray direction to forward of the wolf
+		// Chase player
 		Vector3 fwd = transform.TransformDirection(Vector3.forward);
-		// face player and run at
-		Debug.DrawRay(transform.position, fwd*1.5f, Color.green, 5);
+		Debug.DrawRay(transform.position, fwd*seeDistance, Color.green, 5);
 		transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
 	}
 	void OnCollisionEnter(Collision other) {
-		//damage player if touched by wolf
+		// Do damage when catching player, and send damage to PlayerUIControl.TakeDamage
 		if (other.gameObject.name == "Player") {
-			var hit = other.gameObject;
-			var health = hit.GetComponent<PlayerUIControl>();
-			if (health != null)
+			var health = other.gameObject.GetComponent<PlayerUIControl>();
+			if (health != null) {
+				// Play sound here when added
 				health.TakeDamage(damage);
+			}
 		}
 	}
 }

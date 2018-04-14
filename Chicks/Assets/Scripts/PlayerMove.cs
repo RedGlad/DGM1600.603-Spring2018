@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour {
 	
 	public float moveSpeed, turnSpeed;
-	// public float jumpHeight;
+	// public float jumpHeight; // Not used due to removal of Jump function
 	public Rigidbody rigid;
 
 	void Start () {
@@ -19,9 +19,7 @@ public class PlayerMove : MonoBehaviour {
 		transform.Translate(0,0,v);
 	}
 
-	// This section was for jump functionality, which I decided isn't necessary for this game
-	// Still keeping the code, just in case.
-
+	// Allow player to jump when touching floor. (Not used)
 	// void OnCollisionStay(Collision other) {
 	// 	if (other.gameObject.tag == "Floor") {
 	// 		var j = Input.GetAxis("Jump")* Time.deltaTime * jumpHeight;

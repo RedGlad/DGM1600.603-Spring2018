@@ -7,27 +7,28 @@ public class Projectile : MonoBehaviour {
 	Transform cam;
 
 	void Start () {
-		//start countdown
+		// Start lifetime countdown
 		StartCoroutine(DestroyProjectile());
-		//find camera
+		// Find camera to track
 		cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
 	}
 	void Update () {
-		//always face sprite toward camera
+		// Track camera so sprite always faces viewer
 		transform.LookAt(cam.position);
 	}
 	void OnCollisionEnter(Collision other) {
-		//destroy bullet if hitting walls or chickens
+		// Destroy only the bullet if hitting walls or chickens
 		if (other.gameObject.tag == "Wall" || other.gameObject.tag == "Chicken") {
 			Destroy(gameObject);
 		}
-		//destroy bullet and wolf if hitting wolf
+		// Destroy the bullet AND wolf if hitting wolf
 		else if (other.gameObject.tag == "Wolf") {
 			Destroy(other.gameObject);
 			Destroy(gameObject);
 		}
 	}
 	IEnumerator DestroyProjectile(){
+		// After set liftime, destroy bullet
 		yield return new WaitForSeconds(lifetime);
 		Destroy(gameObject);
 	}

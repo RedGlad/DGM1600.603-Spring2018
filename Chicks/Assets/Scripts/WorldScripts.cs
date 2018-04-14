@@ -6,13 +6,12 @@ public class WorldScripts : MonoBehaviour {
 
 	public float dayCycleSpeed;
 	public Transform daylight;
-	// Use this for initialization
+
 	void Start () {
-		//probably put music here?
+		// Probably put background music here?
 	}
-	
-	// Update is called once per frame
 	void Update () {
+		// Control daycycle
 		daylight.transform.Rotate(dayCycleSpeed*Time.deltaTime,0,0);
 	}
 }

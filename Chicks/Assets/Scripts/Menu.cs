@@ -7,12 +7,12 @@ public class Menu : MonoBehaviour {
 
 	public int levelToLoad;
 
-	// Use this for loading levels.
 	public void LoadLevel () {
+		// Start game
 		SceneManager.LoadScene(levelToLoad);
 	}
-	// Use this to quit.
 	public void LevelExit() {
+		// Quit game
 		Application.Quit();
 	}
 }
