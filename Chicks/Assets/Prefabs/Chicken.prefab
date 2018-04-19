@@ -129,6 +129,7 @@ MonoBehaviour:
   maxWanderSpeed: 3
   seeDistance: 3
   points: 1
+  resPoint: {x: -35, y: 3, z: 35}
 --- !u!135 &135467717520570204
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -6,6 +6,7 @@ public class WolfAI : MonoBehaviour {
 
 	public float runSpeed, minWanderSpeed, maxWanderSpeed, seeDistance;
 	public int damage = 1;
+	public Vector3 resPoint;
 
 	void Start() {
 		// Point in a random direction when initialized
@@ -14,7 +15,7 @@ public class WolfAI : MonoBehaviour {
 		void Update () {
 		// Bring glitched away objects back to playfield
 		if (transform.position.y < 0.0f) {
-			transform.SetPositionAndRotation(new Vector3(0,10,0), Quaternion.identity);
+			transform.SetPositionAndRotation(resPoint, Quaternion.identity);
 		}
 	}
 	void OnTriggerStay(Collider other) {

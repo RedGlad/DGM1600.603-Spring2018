@@ -7,6 +7,7 @@ public class ChickAI : MonoBehaviour {
 	public float runSpeed, minWanderSpeed, maxWanderSpeed, seeDistance;
 	Transform chickenPen;
 	public int points = 1;
+	public Vector3 resPoint;
 
 	void Start () {
 		// Find ChickenPen for teleportation
@@ -17,7 +18,7 @@ public class ChickAI : MonoBehaviour {
 	void Update () {
 		// Bring glitched away objects back to playfield
 		if (transform.position.y < 0.0f) {
-			transform.SetPositionAndRotation(new Vector3(0,10,0), Quaternion.identity);
+			transform.SetPositionAndRotation(resPoint, Quaternion.identity);
 		}
 	}
 	void OnTriggerStay(Collider other) {
